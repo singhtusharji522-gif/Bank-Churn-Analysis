@@ -1,4 +1,4 @@
---2. Geographic segment by Gender & Age
+--------------------------------Age, Geography, Gender based Segmentation-----------------------------------------------------
 
 select geography, gender,
 case 
