@@ -1,0 +1,135 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "775e3483-61be-4b03-92bf-0146d8cfb3cb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Importing library\n",
+    "\n",
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "9a25f5db-ae8d-48e1-aef4-1e99e19623bb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Importing Dataset\n",
+    "\n",
+    "Bank=pd.read_csv(\"Bank_churn.csv\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1fa35269-dd8b-4984-9559-f4fcfa2ab088",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "# Dataset overview\n",
+    "\n",
+    "Bank.info()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b1fd0d8e-e107-495c-9cb4-643ac5eaa13c",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "# Check for empty cell\n",
+    "\n",
+    "Bank.isna().sum()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5d7f89e5-2bc7-4f0e-822c-c594716115da",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Check for any negitive value in \"Age\" column\n",
+    "\n",
+    "Bank[Bank[\"Age\"]< 0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "697de5fd-4c80-4864-af29-cc2b6285eea6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Check for any negitive value in each \"numeric\" column\n",
+    "\n",
+    "Bank[Bank.select_dtypes(include=\"number\")<0].any()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5acd5cbb-48bd-486c-b2b6-e88c6e3706c0",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "# Check for duplicate Rows\n",
+    "\n",
+    "Bank[Bank.duplicated()]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8ff00b40-05c7-425a-9a55-c98d37ee4526",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Check duplicate values Column vise\n",
+    "\n",
+    "Bank.apply(lambda col: col.duplicated().any())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bf6216ad-c988-4626-a355-abacbe94273e",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
